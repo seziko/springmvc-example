@@ -1,5 +1,6 @@
-package com.bilgeadam.example;
+package com.bilgeadam.example.controller;
 
+import com.bilgeadam.example.entitiy.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,13 @@ public class HomeController {
 
 
         return "home";
+    }
+    @RequestMapping(value = "/user",method = RequestMethod.POST)
+    public String user(User user, Model model){
+
+        model.addAttribute("userName",user.getUserName());
+
+        return "user";
     }
 
 }
